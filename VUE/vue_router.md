@@ -78,3 +78,5 @@ export default new Vue({
 ```
 
 ## router-view
+
+## vue router.beforeEach()
