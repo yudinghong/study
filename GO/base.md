@@ -18,8 +18,19 @@ func main() {
 每个程序必须有一个`package main`, package 指明在哪个包。  
 `func main()`必须有
 
+## 变量类型
 
-声明变量
+(a) 指针类型（Pointer）  
+(b) 数组类型  
+(c) 结构化类型(struct)  
+(d) Channel 类型  
+(e) 函数类型   
+(f) 切片类型   
+(g) 接口类型（interface）  
+(h) Map 类型   
+
+
+### 声明变量
 ```go
 var identifier type
 var identifier = "xxx"
@@ -124,3 +135,44 @@ for key, value := range oldMap {
 }
 ```
 
+## 函数
+```go
+func function_name( [parameter] )[return_types]{
+   // todo
+}
+```
+
+### 方法
+```go
+func (variable_name variable_data_type) function_name() [return_type]{
+   /* 函数体*/
+}
+
+func (c Circle) getArea() float64 {
+  //c.radius 即为 Circle 类型对象中的属性
+  return 3.14 * c.radius * c.radius
+}
+```
+
+### 结构体
+```go
+type struct_variable_type struct {
+   member definition
+   member definition
+   ...
+   member definition
+}
+
+variable_name := structure_variable_type {value1, value2...valuen}
+
+variable_name := structure_variable_type { key1: value1, key2: value2..., keyn: valuen}
+```
+
+### 指针
+```go
+var var_name *var-type
+var a int= 20   /* 声明实际变量 */
+var ip *int        /* 声明指针变量 */
+
+ip = &a  /* 指针变量的存储地址 */
+```
