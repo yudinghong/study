@@ -1,3 +1,4 @@
+[toc]
 Markdown学习
 =
 二级标题
@@ -27,7 +28,6 @@ ___粗斜体文本___
 
 创建脚注格式类似这样[^test].  
 [^test]: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！
-(脚注问题有待测试)  
 
 * *无序列表  
 + +无序列表
@@ -59,7 +59,7 @@ console.log()
 
 [1]: http://www.baidu.com
 
-![alt xxx](img url) 也可以使用img标签
+![alt joker](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3875252449,1881849669&fm=26&gp=0.jpg) 也可以使用img标签
 
 使用 | 分隔不同单元格 使用---- 分割其他行
 
@@ -87,26 +87,141 @@ table th:nth-of-type(3) {
 
 可以直接使用html标签  \<kbd>按键文本
 
-数学公式采用两个$$包裹TeX的公式
+数学公式采用两个\$\$包裹TeX的公式
 $$2^3 \\ \angle A=90^ \circ$$
 
 -[x] aaa  选项，兼容性一般
 
 
-流程图[流程图示例](https://www.jianshu.com/p/b03a8d7b1719)
-```flow                     // 流程
-st=>start: 开始|past:> http://www.baidu.com // 开始
-e=>end: 结束              // 结束
-c1=>condition: 条件1:>http://www.baidu.com[_parent]   // 判断条件
-c2=>condition: 条件2      // 判断条件
-c3=>condition: 条件3      // 判断条件
-io=>inputoutput: 输出     // 输出
-//----------------以上为定义参数-------------------------
+###流程图
+* `graph`  指定流程图方向：`graph LR` 横向，`graph TD` 纵向
+* 元素的形状定义：
+    * `id[描述]` 以直角矩形绘制
+    * `id(描述)` 以圆角矩形绘制
+    * `id{描述}` 以菱形绘制
+    * `id>描述]` 以不对称矩形绘制
+    * `id((描述))` 以圆形绘制
+* 线条定义：
+    * `A-->B` 带箭头指向
+    * `A---B` 不带箭头连接
+    * `A-.-B` 虚线连接
+    * `A-.->B` 虚线指向
+    * `A==>B` 加粗箭头指向
+    * `A--描述---B` 不带箭头指向并在线段中间添加描述
+    * `A--描述-->B` 带描述的箭头指向  
+    * `A-.描述.->B` 带描述的虚线连指向
+    * `A==描述==>B` 带描述的加粗箭头指向
+* 子流程图定义
+```
+subgraph title
+    graph direction
+end
+```
+```mermaid
+graph TB
+    A ---> |bb|B
+    A --aa---> C
+    A ---> D
+    C ---> D>描述]
+```
+### 标准流程图
+* 定义模块 `id=>关键字: 描述` （“描述”的前面必须有空格，“=>” 两端不能有空格）
+* 关键字：
+    * `start` 流程开始，以圆角矩形绘制
+    * `opearation` 操作，以直角矩形绘制
+    * `condition` 判断，以菱形绘制 
+    * `subroutine` 子流程，以左右带空白框的矩形绘制
+    * `inputoutput` 输入输出，以平行四边形绘制
+    * `end` 流程结束，以圆角矩形绘制
+* 定义模块间的流向：
+    * `模块1 id->模块2 id` ：一般的箭头指向  
+    * `条件模块id (描述)->模块id(direction)` ：条件模块跳转到对应的执行模块，并指定对应分支的布局方向
+```flow
+graph TB
+st=>start: 开始框
+op=>operation: 处理框
+cond=>condition: 判断框(是或否?)
+sub1=>subroutine: 子流程
+io=>inputoutput: 输入输出框
+e=>end: 结束框
+st(right)->op(right)->cond
+cond(yes)->io(bottom)->e
+cond(no)->sub1(right)->op
+```
+### 时序图
+* 基本语法：
+    * `Title:标题` ：指定时序图的标题
+    * `Note direction of 对象:描述` ： 在对象的某一侧添加描述，direction 可以为 right/left/over ， 对象 可以是多个对象，以 , 作为分隔符
+    * `participant 对象` ：创建一个对象
+    * `loop...end` ：创建一个循环体
+    * `对象A->对象B`:描述 ： 绘制A与B之间的对话，以实线连接
+        * `->` 实线实心箭头指向
+        * `-->` 虚线实心箭头指向
+        * `->>` 实线小箭头指向
+        * `-->>` 虚线小箭头指向
 
-//----------------以下为连接参数-------------------------
-// 开始->判断条件1为no->判断条件2为no->判断条件3为no->输出->结束
-st->c1(yes,right)->c2(yes,right)->c3(yes,right)->io->e
-c1(no)->e                   // 条件1不满足->结束
-c2(no)->e                   // 条件2不满足->结束
-c3(no)->e                   // 条件3不满足->结束
+```sequence
+Title:时序图示例
+客户端->服务端: 我想找你拿下数据 SYN
+服务端-->客户端: 我收到你的请求啦 ACK+SYN
+客户端->>服务端: 我收到你的确认啦，我们开始通信吧 ACK
+Note right of 服务端: 我是一个服务端
+Note left of 客户端: 我是一个客户端
+Note over 服务端,客户端: TCP 三次握手
+participant 观察者
+```
+### 带样式时序图
+* 需要使用 `mermaid` 解析，并在开头使用关键字 `sequenceDiagram` 指明
+* 线段的样式遵循 mermaid 的解析方式
+    * -> ： 实线连接
+    * --> ：虚线连接
+    * ->> ：实线箭头指向
+    * -->> ：虚线箭头指向
+```mermaid
+sequenceDiagram
+对象A->对象B:中午吃什么？
+对象B->>对象A: 随便
+loop 思考
+    对象A->对象A: 努力搜索
+end
+对象A-->>对象B: 火锅？
+对象B->>对象A: 可以
+Note left of 对象A: 我是一个对象A
+Note right of 对象B: 我是一个对象B
+participant 对象C
+Note over 对象C: 我自己说了算
+```
+### 甘特图
+* 使用 `mermaid` 解析语言，在开头使用关键字 `gantt` 指明
+* `deteFormat 格式` 指明日期的显示格式
+* `title 标题` 设置图标的标题
+* `section 描述` 定义纵向上的一个环节
+* 定义步骤：每个步骤有两种状态 `done`（已完成）/ `active`（执行中）
+    * `描述: 状态,id,开始日期,结束日期/持续时间`
+    * `描述: 状态[,id],after id2,持续时间`
+    * `crit` ：可用于标记该步骤需要被修正，将高亮显示
+    * 如果不指定具体的开始时间或在某个步骤之后，将默认依次顺序排列
+```mermaid
+gantt
+        dateFormat  YYYY-MM-DD
+
+        title 软件开发甘特图
+
+        section 设计
+        需求:done,des1, 2019-01-06,2019-01-08
+        原型:active,des2, 2019-01-09, 3d
+        UI设计:des3, after des2, 5d
+        未来任务:des4, after des3, 5d
+
+        section 开发
+        学习准备理解需求:crit, done, 2019-01-06,24h
+        设计框架:crit, done, after des2, 2d
+        开发:crit, active, 3d
+        未来任务:crit, 5d
+        休息时间:2d
+
+        section 测试
+        功能测试:active, a1, after des3, 3d
+        压力测试:after a1, 20h
+        测试报告: 48h
 ```
