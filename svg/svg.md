@@ -116,15 +116,15 @@
 
 ## path
 * properties
-    * M = moveto
-    * L = lineto
-    * H = horizontal lineto
-    * V = vertical lineto
-    * C = curveto
+    * M = moveto (x y)
+    * L = lineto 
+    * H = horizontal lineto (H x | h dx)
+    * V = vertical lineto (V y | v dy)
+    * C = curveto (C x1 y1, x2 y2, x y | c dx1 dy1, dx2 dy2, dx dy)
     * S = smooth curveto
-    * Q = quadratic Bézier curve
+    * Q = quadratic Bézier curve (Q x1 y1, x y | q dx1 dy1, dx dy)
     * T = smooth quadratic Bézier curveto
-    * A = elliptical Arc
+    * A = elliptical Arc (rx ry x-axis-rotation[1大弧 0小弧] large-arc-flag[1顺 0逆] x y)
     * Z = closepath
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -134,3 +134,102 @@
 <svg width="100" height="100">
     <path d="M15 0 L75 20 L22 20 Z" />
 </svg>
+
+## text
+* properties 
+    * transform 
+```svg
+<svg>
+    <text x="10" y="10" fill="red" transform="rotate(90 10,10)">it's a test string</text>
+</svg>
+```
+<svg>
+    <text x="10" y="10" fill="red" transform="rotate(20 10,10)">it's a test string</text>
+</svg>
+
+```svg
+<svg>
+    <defs>
+        <path id="myPath" d="M10 10 Q 80 80 240 10" /> 
+    </defs>
+    <use xlink:href="#myPath" fill="none" stroke="red"  />
+    <text fill="red" font-size="30">
+        <textPath xlink:href="#myPath" >it's a test string</textPath>
+    </text>
+</svg>
+```
+<svg>
+    <defs>
+        <path id="myPath" d="M10 10 Q 80 80 240 10" /> 
+    </defs>
+    <use xlink:href="#myPath" fill="none" stroke="red"  />
+    <text fill="red" font-size="30">
+        <textPath xlink:href="#myPath" >it's a test string</textPath>
+    </text>
+</svg>
+
+> 1. 坐标系的x轴为path；
+> 2. 坐标系的y轴在x轴的任意点上，方向都不一致，但是必然是该点对于x轴切线的垂直线。
+
+## stroke
+* properties 
+    * stroke
+    * stroke-width
+    * stroke-linecap (butt round square)
+    * stroke-dasharray (len offset)   len offset len offset ... 
+    * stroke-dashoffset
+```svg
+<svg>
+   <line x1="10" y1="10" x2="140" y2="10" stroke="red" stroke-width="4" stroke-dasharray="10 3" /> 
+   <line x1="10" y1="20" x2="140" y2="20" stroke="red" stroke-width="4" stroke-dasharray="10 3 5" />
+</svg>
+```
+<svg>
+   <line x1="10" y1="10" x2="140" y2="10" stroke="red" stroke-width="4" stroke-dasharray="10 3" /> 
+   <line x1="10" y1="20" x2="140" y2="20" stroke="red" stroke-width="4" stroke-dasharray="10 3 5" />
+</svg>
+
+## Filter 
+* feBlend - 与图像相结合的滤镜
+* feColorMatrix - 用于彩色滤光片转换
+* feComponentTransfer
+* feComposite
+* feConvolveMatrix
+* feDiffuseLighting
+* feDisplacementMap
+* feFlood
+* feGaussianBlur
+* feImage
+* feMerge
+* feMorphology
+* feOffset - 过滤阴影
+* feSpecularLighting
+* feTile
+* feTurbulence
+* feDistantLight - 用于照明过滤
+* fePointLight - 用于照明过滤
+* feSpotLight - 用于照明过滤
+```svg
+<svg>
+  <defs>
+    <filter id="f1" x="0" y="0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+    </filter>
+  </defs>
+  <rect width="90" height="90" stroke="green" stroke-width="3"
+  fill="yellow" filter="url(#f1)" />
+</svg>
+```
+<svg>
+  <defs>
+    <filter id="f1" x="0" y="0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+    </filter>
+  </defs>
+  <rect width="90" height="90" stroke="green" stroke-width="3"
+  fill="yellow" filter="url(#f1)" />
+</svg>
+
+[阴影](https://www.runoob.com/svg/svg-feoffset.html)
+[渐变-线性](https://www.runoob.com/svg/svg-grad-linear.html)
+[渐变-放射性](https://www.runoob.com/svg/svg-grad-radial.html)
