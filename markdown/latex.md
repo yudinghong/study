@@ -12,6 +12,7 @@ $\mathtt{A}$ $\mathbb{A}$ $\mathsf{A}$
 $\langle\rangle$
 $\left(\frac{x}{y}\right)$ `使符号大小与临近的公式相适应，适用所有括号`
 $\sum_{i=1}^n{a_i}$
+$\sum\limits_{i=1}^n{a_i}$
 $\lim_{x\to0}$
 $\int_0^\infty{fxdx}$
 $\frac{a}{b}$
