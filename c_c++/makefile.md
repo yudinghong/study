@@ -1,0 +1,9 @@
+# <center>Makefile</center>
+
+## makefile 规则
+```
+target ...: prerequisites ...
+command
+...
+...
+```
