@@ -4,7 +4,7 @@
 ```
 $\alpha \beta \gamma \delta \epsilon \zeta \eta \theta \iota \kappa \lambda \mu \nu \xi \pi \rho \sigma \tau \upsilon \phi \chi \psi \omega \Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta \Iota \Kappa \Lambda \Mu \Nu \Xi \Pi \Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega $
 ` 变量形式则加上var前缀如 \varGamma` $\varGamma$
-
+`\displaystyle` `\textstyle`
 $$a^{21}$$
 $$a_2$$
 $\pm$
