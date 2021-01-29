@@ -20,6 +20,7 @@ $\lim_{x\to0}$
 $\lim\limits_{x\to0}$
 $\int_0^\infty{fxdx}\quad\prime\iint\oint$
 $\frac{a}{b}$
+$\dfrac{a}{c}\ \tfrac{a}{c}$
 $\sqrt[x]{y}$
 $\infty \cup \cap \subset \subseteq \supset \in \notin \varnothing \forall \exists \lnot \nabla \partial \bigvee \bigwedge$ 
 $a\ b$
