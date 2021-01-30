@@ -6,6 +6,7 @@ $\alpha \beta \gamma \delta \epsilon \zeta \eta \theta \iota \kappa \lambda \mu 
 ` 变量形式则加上var前缀如 \varGamma` $\varGamma$
 
 $$a^{21}$$
+$\underset{a}{\bigcup}$
 $$a_2$$
 $\pm$
 $\vec a$ $\overrightarrow{xy}$ $\overleftarrow{xy}$
