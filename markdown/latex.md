@@ -4,7 +4,7 @@
 ```
 $\alpha \beta \gamma \delta \epsilon \zeta \eta \theta \iota \kappa \lambda \mu \nu \xi \pi \rho \sigma \tau \upsilon \phi \chi \psi \omega \Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta \Iota \Kappa \Lambda \Mu \Nu \Xi \Pi \Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega $
 ` 变量形式则加上var前缀如 \varGamma` $\varGamma$
-
+`\displaystyle` `\textstyle`
 $$a^{21}$$
 $\underset{a}{\bigcup}$
 $$a_2$$
@@ -21,6 +21,7 @@ $\lim_{x\to0}$
 $\lim\limits_{x\to0}$
 $\int_0^\infty{fxdx}\quad\prime\iint\oint$
 $\frac{a}{b}$
+$\dfrac{a}{c}\ \tfrac{a}{c}$
 $\sqrt[x]{y}$
 $\infty \cup \cap \subset \subseteq \supset \in \notin \varnothing \forall \exists \lnot \nabla \partial \bigvee \bigwedge$ 
 $a\ b$
