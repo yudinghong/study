@@ -30,4 +30,3 @@
 ### 伪指令
 `DB DW DD DQ DT ;声明初始化的变量`
 `RESB RESW RESD RESQ REST INCBIN ;声明未初始化的变量` `INCBIN ;二进制文件 incbin "file.dat"`
-``
