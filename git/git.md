@@ -95,4 +95,5 @@ git reset [--soft | --hard] HEAD [^^ | ~2]
 ```
 git rebase <branch>
 git rebase --onto master server client # 取出 client 分支，找出它从 server 分支分歧之后的补丁， 然后把这些补丁在master 分支上重放一遍，让 client 看起来像直接基于 master 修改一样
+git rebase --continue
 ```
