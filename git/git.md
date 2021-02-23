@@ -61,7 +61,7 @@ git checkout -- xxxx
 git tag
 git tag -l "xxx"
 git tag -a xxx -m "xxx" # 创建附注标签
-git tag show xxx
+git tag show xx
 git tag xxx # 创建轻量标签
 git tag -a xxx <校验和>
 git push <remote> <tagname>
