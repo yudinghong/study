@@ -61,7 +61,7 @@ git checkout -- xxxx
 git tag
 git tag -l "xxx"
 git tag -a xxx -m "xxx" # 创建附注标签
-git tag show xxx
+git tag show xx
 git tag xxx # 创建轻量标签
 git tag -a xxx <校验和>
 git push <remote> <tagname>
@@ -97,3 +97,5 @@ git rebase <branch>
 git rebase --onto master server client # 取出 client 分支，找出它从 server 分支分歧之后的补丁， 然后把这些补丁在master 分支上重放一遍，让 client 看起来像直接基于 master 修改一样
 git rebase --continue
 ```
+
+## gitk&
