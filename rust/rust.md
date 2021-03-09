@@ -51,5 +51,37 @@ int example:
 0b111_10
 b'A' just byte
 */
+let tup: (i32, f64, u8) = (500, 6.4, 1);
+// tup.0 tup.1 tup.2
+let (x, y, z) = tup;
+let a = [1, 2, 3, 4, 5]; // len 5 array
+let a: [i32; 5] = [1, 2, 3, 4, 5]; // len 5 i32 array
+let a = [3; 5] // eq [3, 3, 3, 3, 3]
+// function can use a expresion as end, like a = 1       b + 3 
+fn functionName() -> i32 {
+  let y = {
+    let x = 3;
+    x + 1
+  }
+}
+if a > 3 {
+  ...
+}
+else if a < 1 {
+  ...
+}
+else {
+  ...
+}
+if a > 0 { 1 } else { -1 };
+while a < 3 {
 
+}
+let a = [1, 2, 3, 4, 5]
+for i in a.iter() {
+  ...
+}
+loop {
+  break x;
+}
 ```
