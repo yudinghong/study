@@ -84,4 +84,6 @@ for i in a.iter() {
 loop {
   break x;
 }
+char *s = "test";
+free(s); // free s
 ```
