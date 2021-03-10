@@ -225,3 +225,63 @@ gantt
         压力测试:after a1, 20h
         测试报告: 48h
 ```
+
+### 支持的图
+
+> mermaid, PlantUML, WaveDrom, GraphViz，Vega & Vega-lite，Ditaa
+
+```vega-lite
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "values": [
+      {"a": "A", "b": 28}, {"a": "B", "b": 55}, {"a": "C", "b": 43},
+      {"a": "D", "b": 91}, {"a": "E", "b": 81}, {"a": "F", "b": 53},
+      {"a": "G", "b": 19}, {"a": "H", "b": 87}, {"a": "I", "b": 52}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "a", "type": "nominal", "axis": {"labelAngle": 0}},
+    "y": {"field": "b", "type": "quantitative"}
+  }
+}
+```
+
+```mermaid
+classDiagram
+Class01 <|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --> C2 : Where am i?
+Class09 --* C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 <--> C2: Cool label
+```
+
+```mermaid
+stateDiagram Start --> First First --> Second First --> Third Second --> End Third --> End state First { [*] --> fir fir --> [*] } state Second { [*] --> sec sec --> [*] } state Third {}
+```
+
+```mermaid 
+pie
+title Pets adopted by volunteers 
+"Dogs" : 386
+"Cats" : 85
+"Rats" : 15 
+```
+
+```ditaa{cmd=true args=["-E"]}
++---+
+|   |
++---+
+```
+
+## code chunk
