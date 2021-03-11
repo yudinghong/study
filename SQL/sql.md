@@ -177,18 +177,4 @@ ALTER TABLE <表名> DROP FOREIGN KEY <外键约束名>;
   CHANGE COLUMN <字段名> <字段名> <数据类型> DEFAULT NULL;
   ```
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
 (case when conditions then .... else .... end)
