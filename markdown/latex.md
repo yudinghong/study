@@ -60,7 +60,7 @@ a_2x+b_2y+c_2z=d_2\\
 a_3x+b_3y+c_3z=d_3\\
 \end{cases}
 $$
-$\because\ \times\ \div\ \mid\ \nmid\ \cdot\ \circ\ \ast\ \bigodot\ \bigotimes\ \leq\ \geq\ \neq\ \approx\ \equiv\ \coprod\ \therefore$
+$\because\ \times\ \div\ \mid\ \nmid\ \cdot\ \circ\ \ast\ \bigodot\ \bigotimes\ \leq\ \geq\ \neq\ \approx\ \equiv\ \coprod\ \therefore\ \geqslant\ \leqslant$
 $\uparrow\downarrow\Uparrow\Downarrow\rightarrow\leftarrow\Rightarrow\Leftarrow\longrightarrow\longleftarrow\Longrightarrow\Longleftarrow$
 $\angle\quad30^\circ$
 $\overbrace{a+\underbrace{b+c}_{1.0}+d}^{2.0}$
