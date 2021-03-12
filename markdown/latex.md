@@ -73,3 +73,11 @@ a=&\left(1+2+3+  \cdots \right. \\
 \end{aligned}
 $
 行内$\bigl( \begin{smallmatrix} a & b \\ c & d \end{smallmatrix} \bigr)$ 
+
+$$
+\begin{aligned}
+max z &= CX \\
+AX&=b \\
+X&\geqslant0
+\end{aligned}
+$$
