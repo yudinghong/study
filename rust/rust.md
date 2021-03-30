@@ -9,6 +9,10 @@ cargo tree (check dependency)
 cargo bench (run benchmark)
 cargo udeps (check unused packages)
 
+## rustup
+>rustup update
+rustup doc
+
 ## grammar
 ```rust
 fn main(){
